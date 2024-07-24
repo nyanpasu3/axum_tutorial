@@ -6,17 +6,11 @@ use axum::{
 };
 
 use serde_json::{json};
-
 use serde::{Deserialize, Serialize};
 use std::net::SocketAddr;
-
 use axum::extract::Path;
-
 use tower_http::services::ServeFile;
-
 use std::{io};
-
-
 
 #[derive(Deserialize)] 
 struct CreateUser { 
@@ -44,8 +38,6 @@ async fn main() {
                 format!("Unhandled internal error: {}", error),
             )
         }));
-
-
 
     let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
     tracing::info!("listening on {}", addr);
